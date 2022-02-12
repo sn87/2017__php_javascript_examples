@@ -33,7 +33,6 @@ $( document ).ready(function() {
 		<legend>Persontype of Addressee or Applicant to be selected</legend>
 		<p>If Persontype (1. Option) is not available, Persontype (2. Option) will be used, etc.</p>  	
 	    	<?php 
-	    	// var_dump($freeKeys); //new test
 	    	for($i=5; $i<=9; $i++) {
 	    		$j = $i-5;
 	    		$nr = $j;
@@ -281,7 +280,6 @@ $( document ).ready(function() {
 			echo $this->Form->input('Letter.template',array('options'=>$mailTmpls, 'label'=>false, 'div'=>false, 'id'=>'mail_tmpls', 'class'=>'confirm_sel', 'style'=>'display:none;', 'disabled'=>'disabled'));
 		}
 		echo "</div>";
-		//echo $this->Form->input('Letter.text');
 		echo $this->Form->input('Letter.lang',array('options'=>array('en'=>'English', 'cn'=>'Chinese', 'de'=>'German'), 'label'=>'Language'));
 		?>
 	</fieldset>
@@ -360,11 +358,9 @@ $( document ).ready(function() {
 		<p>These are static fields, that can be used in any letter or email</p>
 		<?php 
 		// button to show or hide checkboxes for showing or hiding letter elment types
-		//echo $this->Form->input('Change Letter Elements', array('type'=>'button', 'class'=>'change_le', 'label'=>false, 'div'=>array('class'=>'add button')));
 		// checkboxes for showing or hiding element types
 		echo "<div class='rowboxes'>";
 		foreach ($statElemTypes as $elementType) {
-			//var_dump($elementType);
 			$typeAlias = $elementType['LetterElementType']['alias'];
 			$checkOpts = array('type'=>'checkbox', 'hiddenField' => false, 'name' => 'data[LetterElementType][LetterElementType][]', 'class'=>'confirm_click input checkbox', 'label'=>$elementType['LetterElementType']['name'] , 'onChange'=>'showElem("'.$typeAlias.'")');
 			if(in_array($elementType['LetterElementType']['id'],$selElemTypeIds)){
